@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 1: Operaciones Numéricas</title>
+</head>
+<body>
+<h2>Formulario de Operaciones Numéricas</h2>
+<form id="miFormulario" action="NumerosServlet" method="POST" onsubmit="return validarCampos()">
+
+    <h3>Sección: Mayor y Menor de 3 Números</h3>
+    <label>Número 1:</label> <input type="number" step="any" id="num1" name="num1" required><br><br>
+    <label>Número 2:</label> <input type="number" step="any" id="num2" name="num2" required><br><br>
+    <label>Número 3:</label> <input type="number" step="any" id="num3" name="num3" required><br><br>
+
+    <hr>
+
+    <h3>Sección: Valor que más se repite (Moda)</h3>
+    <label>Ingresa números separados por comas (ej: -5,3,-5,8,-3,-5):</label><br>
+    <input type="text" name="listaNumeros" required><br><br>
+
+    <input type="submit" value="Calcular Resultados">
+</form>
+
+<script>
+    function validarCampos() {
+        // Obtenemos los valores de los tres campos
+        var n1 = document.getElementById("num1").value;
+        var n2 = document.getElementById("num2").value;
+        var n3 = document.getElementById("num3").value;
+
+        // Comparamos si los tres son exactamente iguales
+        if (n1 === n2 && n2 === n3) {
+            alert("¡Error! No puedes ingresar el mismo número en los tres campos superiores.");
+            return false; // Cancela el envío del formulario
+        }
+        return true; // Permite continuar si no son todos iguales
+    }
+</script>
+</body>
+</html>
