@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menor de 3 Números</title>
+
+    <style>
+        /* Estilos generales del body con fondo degradado */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0b3d2e 0%, #145a38 50%, #1e8449 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Tarjeta blanca centrada con sombra */
+        .contenedor {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        /* Ícono decorativo superior */
+        .icono {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        /* Título principal */
+        h1 {
+            font-size: 22px;
+            color: #0b3d2e;
+            margin-bottom: 6px;
+        }
+
+        /* Subtítulo descriptivo */
+        .subtitulo {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 28px;
+        }
+
+        /* Etiquetas de cada campo */
+        label {
+            display: block;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        /* Campos de texto */
+        input[type="number"] {
+            width: 100%;
+            padding: 11px 14px;
+            font-size: 15px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            box-sizing: border-box;
+            color: #222;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        /* Efecto al hacer foco en el input */
+        input[type="number"]:focus {
+            border-color: #1e8449;
+        }
+
+        /* Botón de enviar */
+        button {
+            width: 100%;
+            padding: 13px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0b3d2e, #1e8449);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        /* Efecto hover en el botón */
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Enlace para volver al menú */
+        .volver {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #0b3d2e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .volver:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tarjeta principal -->
+    <div class="contenedor">
+
+        <div class="icono">🔽</div>
+        <h1>Menor de 3 Números</h1>
+        <p class="subtitulo">Ingresa tres números enteros y el sistema encontrará el menor.</p>
+
+        <!-- Formulario que envía datos por POST al Servlet de Java -->
+        <form action="MenorTresNumerosServlet" method="POST">
+
+            <label for="numero1">Primer número:</label>
+            <input type="number" id="numero1" name="numero1" placeholder="Ej: 15" required>
+
+            <label for="numero2">Segundo número:</label>
+            <input type="number" id="numero2" name="numero2" placeholder="Ej: 42" required>
+
+            <label for="numero3">Tercer número:</label>
+            <input type="number" id="numero3" name="numero3" placeholder="Ej: 7" required>
+
+            <button type="submit">Calcular menor</button>
+
+        </form>
+
+        <!-- Enlace para regresar al menú principal -->
+        <a class="volver" href="index.html">⬅ Volver al menú</a>
+
+    </div>
+
+</body>
+</html>

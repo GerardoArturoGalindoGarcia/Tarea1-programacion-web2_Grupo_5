@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipotenusa</title>
+
+    <style>
+        /* Fondo con degradado */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #2c1654 0%, #4a235a 50%, #7d3c98 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Tarjeta blanca centrada */
+        .contenedor {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .icono {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 22px;
+            color: #2c1654;
+            margin-bottom: 6px;
+        }
+
+        /* Fórmula visible para el usuario */
+        .formula {
+            font-size: 13px;
+            color: #7d3c98;
+            background-color: #f5eeff;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 11px 14px;
+            font-size: 15px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            box-sizing: border-box;
+            color: #222;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        input[type="number"]:focus {
+            border-color: #7d3c98;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, #2c1654, #7d3c98);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #2c1654;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .volver:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tarjeta principal -->
+    <div class="contenedor">
+
+        <div class="icono">📐</div>
+        <h1>Calcular Hipotenusa</h1>
+
+        <!-- Fórmula que se usa -->
+        <p class="formula">c = √(a² − b²)</p>
+
+        <!-- Formulario que envía los datos al Servlet -->
+        <form action="HipotenusaServlet" method="post">
+
+            <label for="a">Valor de a (cateto mayor):</label>
+            <input type="number" id="a" name="a" placeholder="Ej: 10" step="any" required>
+
+            <label for="b">Valor de b (cateto menor):</label>
+            <input type="number" id="b" name="b" placeholder="Ej: 6" step="any" required>
+
+            <button type="submit">Calcular hipotenusa</button>
+
+        </form>
+
+        <a class="volver" href="index.html">⬅ Volver al menú</a>
+
+    </div>
+
+</body>
+</html>

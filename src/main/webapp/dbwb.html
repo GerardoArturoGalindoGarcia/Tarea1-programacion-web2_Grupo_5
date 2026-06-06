@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor Binario / Decimal</title>
+</head>
+<body>
+
+<!-- DECIMAL A BINARIO -->
+<h3>Decimal a Binario</h3>
+<form action="convertidor" method="get">
+    <input type="hidden" name="operation" value="DecimalaBinario">
+ <label>Decimal:</label>
+<input type="number" name="number" required>
+    <button type="submit">Convertir</button>
+</form>
+
+<br><br>
+
+<!-- BINARIO A DECIMAL -->
+<h3>Binario a Decimal</h3>
+<form action="convertidor" method="get">
+    <input type="hidden" name="operation" value="BinarioaDecimal">
+    <label>Binario:</label>
+    <input type="text" name="number" pattern="[01]+" required>
+    <button type="submit">Convertir</button>
+</form>
+<br><br><br><br><br><br>
+<a href="index.html">
+    <button type="button">Volver al Menu Principal</button>
+</a>
+</body>
+</html>

@@ -3,7 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Tarea 1: Operaciones Numéricas</title>
+    <title>Proyecto Programación Web 2</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 500px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
 <h2>Formulario de Operaciones Numéricas</h2>
 <form id="miFormulario" action="NumerosServlet" method="POST" onsubmit="return validarCampos()">
@@ -14,13 +78,35 @@
     <label>Número 3:</label> <input type="number" step="any" id="num3" name="num3" required><br><br>
 
     <hr>
+<div class="container">
+    <h1>Proyecto Programación Web 2</h1>
 
     <h3>Sección: Valor que más se repite (Moda)</h3>
     <label>Ingresa números separados por comas (ej: -5,3,-5,8,-3,-5):</label><br>
     <input type="text" name="listaNumeros" required><br><br>
+    <div class="card">
+        <h2>Integrantes</h2>
+        <ul>
+            <li>Gerardo Arturo Galindo Garcia - 202410020410</li>
+            <li>Katherine Marisol Villanueva Alvarado - 202110010430</li>
+            <li>William Eduardo Banegas Cruz - 201410010285</li>
+            <li>Nathaly Melissa Aguilar Gómez - 202210110121</li>
+            <li>Ricardo Andres Montes Jovel - 201830010183</li>
+        </ul>
+    </div>
 
     <input type="submit" value="Calcular Resultados">
 </form>
+    <div class="card">
+        <h2>Ejercicios</h2>
+        <ul>
+            <li><a href="dbwb.html">Decimal - Binario</a></li>
+            <li><a href="mayor de 3 numeros.html">Numero Mayor</a></li>
+            <li><a href="menor de 3 numeros.html">Numero Menor</a></li>
+            <li><a href="hipotenusa.html">Hipotenusa</a></li>
+        </ul>
+    </div>
+</div>
 
 <script>
     function validarCampos() {
