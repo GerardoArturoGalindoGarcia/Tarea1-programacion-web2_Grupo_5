@@ -5,11 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>h.nuth</groupId>
-    <artifactId>ServletNumeros</artifactId>
-    <groupId>hn.uth</groupId>
     <artifactId>PW2-Tarea1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ServletNumeros</name>
     <name>PW2-Tarea1</name>
     <packaging>war</packaging>
 
