@@ -2,17 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Decimal a Binario</title>
+    <title>Conversor Binario / Decimal</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #43e97b, #38f9d7);
             margin: 0;
-            height: 100vh;
+            padding: 20px;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-sizing: border-box;
         }
 
         .container {
@@ -24,48 +26,80 @@
             text-align: center;
         }
 
-        h2 {
-            margin-bottom: 20px;
+        h2, h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
 
         input {
             width: 90%;
             padding: 10px;
             margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
 
-        input[type="submit"] {
+        button[type="submit"] {
+            width: 90%;
+            padding: 10px;
             background: #28a745;
             color: white;
             border: none;
             cursor: pointer;
             border-radius: 8px;
+            font-size: 16px;
         }
 
-        input[type="submit"]:hover {
+        button[type="submit"]:hover {
             background: #218838;
         }
 
-        a {
-            display: block;
+        a button {
+            width: 90%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
             margin-top: 15px;
-            text-decoration: none;
-            color: #007BFF;
+        }
+        
+        a button:hover {
+            background: #0056b3;
         }
     </style>
 </head>
-
 <body>
 
 <div class="container">
-    <h2>Convertir Decimal a Binario</h2>
+    <h2>Conversor Numérico</h2>
 
-    <form action="DecimalBinarioServlet" method="post">
-        <input type="number" name="numero" placeholder="Ingrese número decimal" required>
-        <input type="submit" value="Convertir">
+    <h3>Decimal a Binario</h3>
+    <form action="convertidor" method="get">
+        <input type="hidden" name="operation" value="DecimalaBinario">
+        <input type="number" name="number" placeholder="Ingrese número decimal" required>
+        <button type="submit">Convertir</button>
     </form>
 
-    <a href="index.html">⬅ Volver al menú</a>
+    <h3>Binario a Decimal</h3>
+    <form action="convertidor" method="get">
+        <input type="hidden" name="operation" value="BinarioaDecimal">
+        <input type="text" name="number" pattern="[01]+" placeholder="Ingrese número binario (0 y 1)" required>
+        <button type="submit">Convertir</button>
+    </form>
+
+    <br>
+    <a href="index.html">
+        <button type="button">Volver al Menú Principal</button>
+    </a>
 </div>
 
 </body>
