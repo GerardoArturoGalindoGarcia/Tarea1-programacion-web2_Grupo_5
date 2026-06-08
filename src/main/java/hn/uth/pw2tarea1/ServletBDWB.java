@@ -24,7 +24,7 @@ public class ServletBDWB extends HttpServlet {
             int decimal = Integer.parseInt(request.getParameter("number"));
             String binary = Integer.toBinaryString(decimal);
 
-            out.println("<h2>Resultado</h2>");
+                out.println("<h2 style='color:#2c3e50;'>Conversión Exitosa</h2>");
                 out.println("<p>Decimal: <strong style='color:#3498db;'>" + decimal + "</strong></p>");
                 out.println("<p>Binario: <strong style='color:#3498db;'>" + binary + "</strong></p>");
 
@@ -33,7 +33,7 @@ public class ServletBDWB extends HttpServlet {
                 String binary = request.getParameter("number");
                 int decimal = Integer.parseInt(binary, 2);
 
-                out.println("<h2>Resultado</h2>");
+                out.println("<h2 style='color:#2c3e50;'>Conversión Exitosa</h2>");
                 out.println("<p>Binario: <strong style='color:#3498db;'>" + binary + "</strong></p>");
                 out.println("<p>Decimal: <strong style='color:#3498db;'>" + decimal + "</strong></p>");
             } else {
