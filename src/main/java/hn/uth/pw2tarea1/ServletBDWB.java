@@ -18,7 +18,23 @@ public class ServletBDWB extends HttpServlet {
         PrintWriter out = response.getWriter();
         String operation = request.getParameter("operation");
 
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Resultado</title>");
+        out.println("</head>");
+        out.println("<body style='font-family:Arial,sans-serif;"
+                + "background:#f4f4f4;"
+                + "display:flex;"
+                + "justify-content:center;"
+                + "align-items:center;"
+                + "height:100vh;'>");
 
+        out.println("<div style='background:white;"
+                + "padding:30px;"
+                + "border-radius:15px;"
+                + "box-shadow:0 4px 12px rgba(0,0,0,0.2);"
+                + "text-align:center;"
+                + "min-width:300px;'>");
         try {
             if ("DecimalaBinario".equals(operation)) {
             int decimal = Integer.parseInt(request.getParameter("number"));
@@ -43,9 +59,17 @@ public class ServletBDWB extends HttpServlet {
         } catch (Exception e) {
             out.println("<h3>Error en la conversión</h3>");
         }
+        
+        out.println("<br><br><a href='binarios.html' "
+                + "style='background:#3498db;"
+                + "color:white;"
+                + "padding:10px 20px;"
+                + "text-decoration:none;"
+                + "border-radius:5px;'>Volver</a>");
 
-        out.println("<br><a href='binarios.html'>Volver</a>");
-
+        out.println("</div>");
+        out.println("</body>");
+        out.println("</html>");
     }
 
     @Override
