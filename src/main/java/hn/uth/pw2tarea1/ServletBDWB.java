@@ -43,7 +43,7 @@ public class ServletBDWB extends HttpServlet {
             out.println("<h3>Error en la conversión</h3>");
         }
 
-        out.println("<br><a href='dbwb.html'>Volver</a>");
+        out.println("<br><a href='binarios.html'>Volver</a>");
     }
 
     @Override
