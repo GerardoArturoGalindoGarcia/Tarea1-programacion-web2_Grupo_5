@@ -1,4 +1,4 @@
-package com.example.prueba;
+package hn.uth.pw2tarea1;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,14 +18,15 @@ public class ServletBDWB extends HttpServlet {
         PrintWriter out = response.getWriter();
         String operation = request.getParameter("operation");
 
+
         try {
             if ("DecimalaBinario".equals(operation)) {
             int decimal = Integer.parseInt(request.getParameter("number"));
             String binary = Integer.toBinaryString(decimal);
 
             out.println("<h2>Resultado</h2>");
-            out.println("<p>Decimal: " + decimal + "</p>");
-            out.println("<p>Binario: " + binary + "</p>");
+                out.println("<p>Decimal: <strong style='color:#3498db;'>" + decimal + "</strong></p>");
+                out.println("<p>Binario: <strong style='color:#3498db;'>" + binary + "</strong></p>");
 
             }
             else if ("BinarioaDecimal".equals(operation)) {
@@ -33,8 +34,8 @@ public class ServletBDWB extends HttpServlet {
                 int decimal = Integer.parseInt(binary, 2);
 
                 out.println("<h2>Resultado</h2>");
-                out.println("<p>Binario: " + binary + "</p>");
-                out.println("<p>Decimal: " + decimal + "</p>");
+                out.println("<p>Binario: <strong style='color:#3498db;'>" + binary + "</strong></p>");
+                out.println("<p>Decimal: <strong style='color:#3498db;'>" + decimal + "</strong></p>");
             } else {
                 out.println("<h3>Operación no válida</h3>");
             }
@@ -44,6 +45,7 @@ public class ServletBDWB extends HttpServlet {
         }
 
         out.println("<br><a href='binarios.html'>Volver</a>");
+
     }
 
     @Override
