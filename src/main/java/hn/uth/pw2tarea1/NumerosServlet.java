@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/NumerosServlet")
+@WebServlet("/NumerosServletMMM")
 public class NumerosServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -38,10 +38,93 @@ public class NumerosServlet extends HttpServlet {
                 out.println("</body></html>");
                 return;
             }
+            if ("Mayor3Numeros".equals(request.getParameter("operation"))) {
+                int mayor = Math.max(n1, Math.max(n2, n3));
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Resultados</title>");
+                out.println("</head>");
 
-            int mayor = Math.max(n1, Math.max(n2, n3));
-            int menor = Math.min(n1, Math.min(n2, n3));
+                out.println("<body style='font-family:Arial,sans-serif;"
+                        + "background:linear-gradient(135deg,#4facfe,#00f2fe);"
+                        + "display:flex;"
+                        + "justify-content:center;"
+                        + "align-items:center;"
+                        + "height:100vh;"
+                        + "margin:0;'>");
 
+                out.println("<div style='background:white;"
+                        + "padding:30px;"
+                        + "border-radius:15px;"
+                        + "box-shadow:0 6px 20px rgba(0,0,0,0.25);"
+                        + "text-align:center;"
+                        + "min-width:350px;'>");
+
+                out.println("<h2 style='color:#2c3e50;'>Resultado del Análisis</h2>");
+
+                out.println("<p style='font-size:18px;'>El número mayor de los 3 es:</p>");
+
+                out.println("<p style='font-size:26px;"
+                        + "color:#3498db;"
+                        + "font-weight:bold;'>" + mayor + "</p>");
+
+                out.println("<br><a href='Mayor de 3 numeros.html' "
+                        + "style='background:#3498db;"
+                        + "color:white;"
+                        + "padding:12px 25px;"
+                        + "text-decoration:none;"
+                        + "border-radius:8px;"
+                        + "font-weight:bold;'>Volver</a>");
+
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+
+            if ("Menor3Numeros".equals(request.getParameter("operation"))) {
+                int menor = Math.min(n1, Math.min(n2, n3));
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Resultados</title>");
+                out.println("</head>");
+
+                out.println("<body style='font-family:Arial,sans-serif;"
+                        + "background:linear-gradient(135deg,#4facfe,#00f2fe);"
+                        + "display:flex;"
+                        + "justify-content:center;"
+                        + "align-items:center;"
+                        + "height:100vh;"
+                        + "margin:0;'>");
+
+                out.println("<div style='background:white;"
+                        + "padding:30px;"
+                        + "border-radius:15px;"
+                        + "box-shadow:0 6px 20px rgba(0,0,0,0.25);"
+                        + "text-align:center;"
+                        + "min-width:350px;'>");
+
+                out.println("<h2 style='color:#2c3e50;'>Resultado del Análisis</h2>");
+
+                out.println("<p style='font-size:18px;'>El número menor de los 3 es:</p>");
+
+                out.println("<p style='font-size:26px;"
+                        + "color:#3498db;"
+                        + "font-weight:bold;'>" + menor + "</p>");
+
+                out.println("<br><a href='Menor de 3 Numeros.html' "
+                        + "style='background:#3498db;"
+                        + "color:white;"
+                        + "padding:12px 25px;"
+                        + "text-decoration:none;"
+                        + "border-radius:8px;"
+                        + "font-weight:bold;'>Volver</a>");
+
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
+            }
             // --- PARTE C: Valor que más se repite (Soporta Empates) ---
             String listaStr = request.getParameter("listaNumeros");
             String[] partes = listaStr.split(",");
@@ -73,8 +156,6 @@ public class NumerosServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h2>Resultados del Análisis Numérico</h2>");
-            out.println("<p><b>El número mayor de los 3 es:</b> " + mayor + "</p>");
-            out.println("<p><b>El número menor de los 3 es:</b> " + menor + "</p>");
 
             if (modas.size() == 1) {
                 out.println("<p><b>El valor que más se repite de la lista es:</b> " + modas.get(0) + " (se repitió " + maxRepeticiones + " veces)</p>");
