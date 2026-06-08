@@ -21,24 +21,11 @@ public class NumerosServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            // --- PARTE A y B: Mayor y Menor de 3 números ---
-            int n1 = Integer.parseInt(request.getParameter("num1"));
-            int n2 = Integer.parseInt(request.getParameter("num2"));
-            int n3 = Integer.parseInt(request.getParameter("num3"));
 
-            // VALIDACIÓN: Si los tres números son iguales
-            if (n1 == n2 && n2 == n3) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head><title>Error</title></head>");
-                out.println("<body>");
-                out.println("<h3>Error: Los tres números superiores no pueden ser idénticos.</h3>");
-                // Botón de regreso también en la pantalla de error
-                out.println("<br><button onclick=\"window.location.href='index.html'\" style='padding: 10px 20px; font-size: 16px; cursor: pointer;'>Volver al Menú Principal</button>");
-                out.println("</body></html>");
-                return;
-            }
             if ("Mayor3Numeros".equals(request.getParameter("operation"))) {
+                int n1 = Integer.parseInt(request.getParameter("num1"));
+                int n2 = Integer.parseInt(request.getParameter("num2"));
+                int n3 = Integer.parseInt(request.getParameter("num3"));
                 int mayor = Math.max(n1, Math.max(n2, n3));
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
@@ -83,6 +70,9 @@ public class NumerosServlet extends HttpServlet {
             }
 
             if ("Menor3Numeros".equals(request.getParameter("operation"))) {
+                int n1 = Integer.parseInt(request.getParameter("num1"));
+                int n2 = Integer.parseInt(request.getParameter("num2"));
+                int n3 = Integer.parseInt(request.getParameter("num3"));
                 int menor = Math.min(n1, Math.min(n2, n3));
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
@@ -125,43 +115,89 @@ public class NumerosServlet extends HttpServlet {
                 out.println("</body>");
                 out.println("</html>");
             }
-            // --- PARTE C: Valor que más se repite (Soporta Empates) ---
-            String listaStr = request.getParameter("listaNumeros");
-            String[] partes = listaStr.split(",");
 
-            HashMap<Integer, Integer> frecuencias = new HashMap<>();
-            int maxRepeticiones = 0;
+            if ("ModaVariosNumeros".equals(request.getParameter("operation"))) {
 
-            for (String parte : partes) {
-                int num = Integer.parseInt(parte.trim());
-                frecuencias.put(num, frecuencias.getOrDefault(num, 0) + 1);
+                String listaStr = request.getParameter("listaNumeros");
 
-                if (frecuencias.get(num) > maxRepeticiones) {
-                    maxRepeticiones = frecuencias.get(num);
+                if (listaStr == null || listaStr.trim().isEmpty()) {
+                    out.println("<h3>Error: No se enviaron números</h3>");
+                    return;
                 }
-            }
 
-            ArrayList<Integer> modas = new ArrayList<>();
-            for (int num : frecuencias.keySet()) {
-                if (frecuencias.get(num) == maxRepeticiones) {
-                    modas.add(num);
+                String[] partes = listaStr.split(",");
+
+                HashMap<Integer, Integer> frecuencias = new HashMap<>();
+                int maxRepeticiones = 0;
+
+                for (String parte : partes) {
+                    int num = Integer.parseInt(parte.trim());
+                    frecuencias.put(num, frecuencias.getOrDefault(num, 0) + 1);
+
+                    maxRepeticiones = Math.max(maxRepeticiones, frecuencias.get(num));
                 }
+
+                ArrayList<Integer> modas = new ArrayList<>();
+                for (int num : frecuencias.keySet()) {
+                    if (frecuencias.get(num) == maxRepeticiones) {
+                        modas.add(num);
+                    }
+                }
+
+                // ===== HTML BASE ÚNICO =====
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Resultado Moda</title>");
+                out.println("</head>");
+
+                out.println("<body style='font-family:Arial,sans-serif;"
+                        + "background:linear-gradient(135deg,#4facfe,#00f2fe);"
+                        + "display:flex;"
+                        + "justify-content:center;"
+                        + "align-items:center;"
+                        + "height:100vh;"
+                        + "margin:0;'>");
+
+                out.println("<div style='background:white;"
+                        + "padding:30px;"
+                        + "border-radius:15px;"
+                        + "box-shadow:0 6px 20px rgba(0,0,0,0.25);"
+                        + "text-align:center;"
+                        + "min-width:350px;'>");
+
+                out.println("<h2 style='color:#2c3e50;'>Resultado de la Moda</h2>");
+
+                // ===== RESULTADO =====
+                if (modas.size() == 1) {
+
+                    out.println("<p style='font-size:18px;'>La moda es:</p>");
+                    out.println("<p style='font-size:28px;color:#3498db;font-weight:bold;'>"
+                            + modas.get(0) + "</p>");
+                    out.println("<p>Se repitió " + maxRepeticiones + " veces</p>");
+
+                } else {
+
+                    out.println("<p style='font-size:18px;'>Hay empate en la moda:</p>");
+                    out.println("<p style='font-size:28px;color:#3498db;font-weight:bold;'>"
+                            + modas + "</p>");
+                    out.println("<p>Se repitieron " + maxRepeticiones + " veces cada uno</p>");
+                }
+
+                // ===== BOTÓN =====
+                out.println("<br><a href='moda.html' "
+                        + "style='background:#3498db;"
+                        + "color:white;"
+                        + "padding:12px 25px;"
+                        + "text-decoration:none;"
+                        + "border-radius:8px;"
+                        + "font-weight:bold;'>Volver</a>");
+
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
             }
 
-            // --- PRESENTACIÓN DE RESULTADOS ---
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Resultados</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h2>Resultados del Análisis Numérico</h2>");
-
-            if (modas.size() == 1) {
-                out.println("<p><b>El valor que más se repite de la lista es:</b> " + modas.get(0) + " (se repitió " + maxRepeticiones + " veces)</p>");
-            } else {
-                out.println("<p><b>Hay un empate en la moda. Los valores que más se repiten son:</b> " + modas + " (se repitieron " + maxRepeticiones + " veces cada uno)</p>");
-            }
 
             out.println("<br><br>");
 
@@ -175,6 +211,7 @@ public class NumerosServlet extends HttpServlet {
 
         } catch (NumberFormatException e) {
             out.println("<h3>Error: Por favor asegúrate de ingresar solo números enteros válidos.</h3>");
+            out.println("<p>DEBUG listaNumeros: " + request.getParameter("listaNumeros") + "</p>");
             out.println("<br><button onclick=\"window.location.href='index.html'\" style='padding: 10px 20px; font-size: 16px; cursor: pointer;'>Volver al Menú Principal</button>");
         } finally {
             out.close();

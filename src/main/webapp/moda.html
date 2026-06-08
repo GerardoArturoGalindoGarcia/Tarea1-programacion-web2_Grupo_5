@@ -110,19 +110,17 @@
 
     <form action="NumerosServletMMM" method="post">
 
-        <input type="hidden" name="num1" value="1">
-        <input type="hidden" name="num2" value="2">
-        <input type="hidden" name="num3" value="3">
-
         <div class="form-group">
             <label for="lista">Lista de Números:</label>
             <input type="text" id="lista" name="listaNumeros" placeholder="Ejemplo: 4,5,4,8,9,4,2" required>
+            <input type="hidden" name="operation" value="ModaVariosNumeros">
         </div>
+
 
         <button type="submit" class="btn-submit">Calcular Moda</button>
     </form>
 
-    <a href="index.html" class="btn-back">Volver al Menú Principal</a>
+    <a href="index.html" class="btn-back">⬅ Volver al Menú Principal</a>
 </div>
 
 </body>
