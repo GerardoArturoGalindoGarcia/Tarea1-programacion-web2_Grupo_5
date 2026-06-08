@@ -59,7 +59,7 @@ public class ServletBDWB extends HttpServlet {
         } catch (Exception e) {
             out.println("<h3>Error en la conversión</h3>");
         }
-        
+
         out.println("<br><br><a href='binarios.html' "
                 + "style='background:#3498db;"
                 + "color:white;"
