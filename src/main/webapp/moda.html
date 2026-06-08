@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Valor que más se repite (Moda)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #02aab0, #00cdac);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #02aab0;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #02aab0;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #00cdac;
+        }
+
+        .btn-back {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: background 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Valor que más se repite</h2>
+    <p>Ingresa un conjunto de números enteros separados únicamente por comas (sin espacios) para calcular cuál es la moda.</p>
+
+    <form action="NumerosServlet" method="post">
+
+        <input type="hidden" name="num1" value="1">
+        <input type="hidden" name="num2" value="2">
+        <input type="hidden" name="num3" value="3">
+
+        <div class="form-group">
+            <label for="lista">Lista de Números:</label>
+            <input type="text" id="lista" name="listaNumeros" placeholder="Ejemplo: 4,5,4,8,9,4,2" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Calcular Moda</button>
+    </form>
+
+    <a href="index.html" class="btn-back">Volver al Menú Principal</a>
+</div>
+
+</body>
+</html>
