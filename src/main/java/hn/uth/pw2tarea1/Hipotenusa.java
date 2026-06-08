@@ -1,4 +1,4 @@
-package hn.uth.hipotenusa;
+package hn.uth.pw2tarea1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/CalcularHipotenusa")
-public class Hipotenusa {
+public class Hipotenusa extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -122,13 +122,13 @@
         <p class="formula">c = √(a² − b²)</p>
 
         <!-- Formulario que envía los datos al Servlet -->
-        <form action="HipotenusaServlet" method="post">
+        <form action="CalcularHipotenusa" method="post">
 
             <label for="a">Valor de a (cateto mayor):</label>
-            <input type="number" id="a" name="a" placeholder="Ej: 10" step="any" required>
+            <input type="number" id="a" name="catetoA" placeholder="Ej: 10" step="any" required>
 
             <label for="b">Valor de b (cateto menor):</label>
-            <input type="number" id="b" name="b" placeholder="Ej: 6" step="any" required>
+            <input type="number" id="b" name="catetoB" placeholder="Ej: 6" step="any" required>
 
             <button type="submit">Calcular hipotenusa</button>
 
